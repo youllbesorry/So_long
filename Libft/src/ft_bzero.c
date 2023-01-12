@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_map.c                                         :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 15:42:54 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/12 13:34:45 by bfaure           ###   ########lyon.fr   */
+/*   Created: 2022/11/08 16:55:25 by bfaure            #+#    #+#             */
+/*   Updated: 2023/01/12 13:59:02 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	test_map(void)
+#include "../headers/libft.h"
+
+void	ft_bzero(void *s, size_t n)
 {
-	return (0);
+	if (n == 0)
+		return ;
+	ft_memset(s, 0, n);
 }

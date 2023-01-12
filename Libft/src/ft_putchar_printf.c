@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_map.c                                         :+:      :+:    :+:   */
+/*   ft_putchar_printf.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 15:42:54 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/12 13:34:45 by bfaure           ###   ########lyon.fr   */
+/*   Created: 2022/12/08 14:32:22 by bfaure            #+#    #+#             */
+/*   Updated: 2023/01/12 14:01:51 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	test_map(void)
+#include "../headers/ft_printf.h"
+
+int	ft_putchar_printf(char c)
 {
-	return (0);
+	return (write(1, &c, 1));
 }

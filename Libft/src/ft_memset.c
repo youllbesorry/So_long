@@ -1,16 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_map.c                                         :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 15:42:54 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/12 13:34:45 by bfaure           ###   ########lyon.fr   */
+/*   Created: 2022/11/07 18:52:46 by bfaure            #+#    #+#             */
+/*   Updated: 2023/01/12 14:00:47 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	test_map(void)
+#include "../headers/libft.h"
+
+void	*ft_memset(void *b, int c, size_t len)
 {
-	return (0);
+	size_t	i;
+
+	i = 0;
+	while (i != len)
+	{
+		((unsigned char *)b)[i] = ((unsigned char)c);
+		i++;
+	}
+	return (b);
 }
