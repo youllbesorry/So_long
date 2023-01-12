@@ -6,7 +6,7 @@
 #    By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 14:25:35 by bfaure            #+#    #+#              #
-#    Updated: 2023/01/11 16:26:59 by bfaure           ###   ########lyon.fr    #
+#    Updated: 2023/01/12 11:58:58 by bfaure           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@
 
 NAME		=	so_long
 
-LIBFT		=	libft.a
+LIBFT		=	./libft.a
 
-LIBMLX		=	libmlx.a
+LIBMLX		=	./libmlx.a
 
 # ---- Directories ---- #
 
@@ -26,16 +26,16 @@ DIR_OBJS	=	.objs/
 
 DIR_SRCS	=	./
 
-DIR_MLX		=	mlx/
+DIR_MLX		=	mlminilibx_mms_20200219/
 
-DIR_LIBFT	=	libft/
+DIR_LIBFT	=	Libft/
 
 # ---- Files ---- #
 
 HEAD	=	so_long.h
 
-SRCS	=	main.c \
-			test_map.c \
+SRCS	=	main.c\
+			test_map.c\
 
 OBJS	=	${SRCS:%.c=${DIR_OBJS}%.o}
 
@@ -66,7 +66,7 @@ ${addprefix ${DIR_MLX}, ${LIBMLX}}	:
 
 # ---- Compiled Rules ---- #
 
-${DIR_OBJS}%.o	:	${DIR_SRCS}%.c so_long.h ./libft/headers/libft.h | ${DIR_OBJS}
+${DIR_OBJS}%.o	:	${DIR_SRCS}%.c so_long.h ./libft/libft.h | ${DIR_OBJS}
 					${CC} ${CFLAGS} -I ${addprefix ${DIR_LIBFT}, headers/} -I ${DIR_MLX} -I. -c $< -o $@
 
 ${DIR_OBJS}		:
