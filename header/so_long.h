@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:44:36 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/11 15:50:17 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/12 15:42:51 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include "../Libft/headers/libft.h"
+# include "../Libft/headers/ft_printf.h"
+# include "../Libft/headers/get_next_line_bonus.h"
 
 
 #endif

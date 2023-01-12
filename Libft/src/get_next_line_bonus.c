@@ -6,11 +6,11 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:38:58 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/11 11:10:06 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/12 15:43:20 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "../headers/get_next_line_bonus.h"
 
 void	clear_buff(char *buff)
 {
@@ -18,7 +18,7 @@ void	clear_buff(char *buff)
 	size_t	len;
 
 	i = 0;
-	len = ft_strchr(buff, '\n') + 1;
+	len = ft_strchr_gnl(buff, '\n') + 1;
 	while (buff[i] && buff[i + len])
 	{
 		buff[i] = buff[i + len];
@@ -38,9 +38,9 @@ char	*line_get(char *buff, ssize_t cursor, char *line, int fd)
 				return (clear_buff(buff), free(line), NULL);
 			buff[cursor] = '\0';
 		}
-		if (ft_strchr(buff, '\n') > -1 || cursor == 0)
+		if (ft_strchr_gnl(buff, '\n') > -1 || cursor == 0)
 		{
-			line = ft_strnjoin(line, buff, ft_strchr(buff, '\n'));
+			line = ft_strnjoin(line, buff, ft_strchr_gnl(buff, '\n'));
 			if (!line)
 				return (clear_buff(buff), free(line), NULL);
 			return (clear_buff(buff), line);

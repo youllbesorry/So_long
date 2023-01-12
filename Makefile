@@ -6,7 +6,7 @@
 #    By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 14:25:35 by bfaure            #+#    #+#              #
-#    Updated: 2023/01/12 14:59:18 by bfaure           ###   ########lyon.fr    #
+#    Updated: 2023/01/12 15:59:57 by bfaure           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ HEAD	=	header/so_long.h
 
 SRCS	=	main.c\
 			test_map.c\
+			map_error.c\
 
 OBJS = ${SRCS:%.c=${DIR_OBJS}%.o}
 
