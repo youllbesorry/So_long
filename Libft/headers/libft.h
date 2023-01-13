@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:50:15 by bfaure            #+#    #+#             */
-/*   Updated: 2022/11/29 11:56:53 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/13 13:23:23 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 
 size_t	ft_strlen(const char *s);
+size_t	ft_strlen_line(char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 

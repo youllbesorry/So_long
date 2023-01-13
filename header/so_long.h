@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:44:36 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/12 15:42:51 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/13 18:10:16 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@
 # include "../Libft/headers/ft_printf.h"
 # include "../Libft/headers/get_next_line_bonus.h"
 
+int	len_error(char *line);
+int	is_closed_map(char **tab_map, int len_y);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 15:23:52 by bfaure            #+#    #+#              #
-#    Updated: 2023/01/12 14:45:41 by bfaure           ###   ########lyon.fr    #
+#    Updated: 2023/01/13 17:45:54 by bfaure           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCS = ft_isalpha.c\
 	ft_memcpy.c\
 	ft_strchr.c\
 	ft_strlen.c\
+	ft_strlen_line.c\
 	ft_strrchr.c\
 	ft_bzero.c\
 	ft_isascii.c\

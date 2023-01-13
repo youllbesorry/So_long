@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_map.c                                         :+:      :+:    :+:   */
+/*   ft_strlen_line.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 15:42:54 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/13 12:25:53 by bfaure           ###   ########lyon.fr   */
+/*   Created: 2023/01/13 13:22:39 by bfaure            #+#    #+#             */
+/*   Updated: 2023/01/13 13:22:53 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/so_long.h"
+#include "../headers/libft.h"
 
-void	test_map(void)
+size_t	ft_strlen_line(char *str)
 {
-	return ;
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\n' && str[i] != '\0')
+		i++;
+	return (i);
 }
