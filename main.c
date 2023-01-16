@@ -34,7 +34,9 @@ int	creat_tab_map(int fd, int len_y)
 		free(line);
 		i++;
 	}
-	if (is_closed_map(tab_map, len_y) == -1)
+	if (is_closed_map_x(tab_map, len_y) == -1)
+		return (-1);
+	if (is_closed_map_y(tab_map, len_y) == -1)
 		return (-1);
 	return (1);
 }
@@ -50,7 +52,6 @@ int	check_len_error(int fd)
 		line = get_next_line(fd);
 		if (!line)
 			break ;
-		//ft_printf("%s", line);
 		if (len_error(line) == -1)
 			return (free(line), -1);
 		free(line);
@@ -70,6 +71,8 @@ int	main(int argc, char **argv)
 	{
 		fd = open(argv[1], O_RDONLY);
 		len_y = check_len_error(fd);
+		if (len_y == 0)
+			return (close(fd), ft_printf("ERROR : empty map"), -1);
 		if (len_y == -1)
 			return (close(fd), -1);
 		close(fd);
@@ -79,9 +82,6 @@ int	main(int argc, char **argv)
 		close(fd);
 	}
 	else
-	{
-		ft_printf("ERROR : you need to pass at leas one maps");
-		return (-1);
-	}
+		return (ft_printf("ERROR : you need to pass at leas one maps"), -1);
 	return (0);
 }
