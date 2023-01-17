@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:44:36 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/16 15:23:20 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/17 14:06:25 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@
 # include "../Libft/headers/ft_printf.h"
 # include "../Libft/headers/get_next_line_bonus.h"
 
-int	len_error(char *line);
-int	is_closed_map_x(char **tab_map, int len_y);
-int	is_closed_map_y(char **tab_map, int len_y);
-int	find_pce(char **tab_map, int len_x, int len_y);
+int		len_error(char *line);
+int		is_closed_map_x(char **tab_map, t_len *len);
+int		is_closed_map_y(char **tab_map, t_len *len);
+int		find_pce(char **tab_map, t_len *len);
+int		free_map(char **tab_map, t_len *len);
+void	test_map(char **tab_map_cpy, t_len *len);
 
 #endif
