@@ -55,13 +55,14 @@ int	creat_tab_map_cpy(int fd, t_len *len)
 		tab_map_cpy[i] = ft_strdup(line);
 		if (!tab_map_cpy[i])
 			return (free_map(tab_map_cpy, len), -1);
-		ft_printf("%s", tab_map_cpy[i]);
+		//ft_printf("%s", tab_map_cpy[i]);
 		free(line);
 		i++;
 	}
 	if (is_closed_map_x(tab_map_cpy, len) == -1
 		|| is_closed_map_y(tab_map_cpy, len) == -1)
 		return (-1);
+	test_map(tab_map_cpy, len);
 	free_map(tab_map_cpy, len);
 	return (1);
 }

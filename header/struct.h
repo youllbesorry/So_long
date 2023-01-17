@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:19:43 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/17 14:04:01 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/17 15:08:33 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_len
 	int	y;
 }	t_len;
 
-typedef struct s_gps_parssing
+typedef struct s_gps_parsing
 {
 	int	x;
 	int	y;
