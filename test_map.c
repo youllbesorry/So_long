@@ -6,40 +6,27 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:42:54 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/17 16:31:21 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/18 17:03:52 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/so_long.h"
 
-int	free_map(char **tab_map, t_len *len)
-{
-	int	i;
-
-	i = 0;
-	while (i < len->y + 2)
-	{
-		free(tab_map[i]);
-		i++;
-	}
-	free(tab_map);
-	return (-1);
-}
-
-int	gps_x_player(char **tab_map_cpy, t_len *len)
+int	check_char(char **tab_map_cpy, t_len *len)
 {
 	int	x;
 	int	y;
 
-	x = 0;
 	y = 0;
 	while (tab_map_cpy[y] && y < len->y)
 	{
 		x = 0;
 		while (tab_map_cpy[y][x] && x < len->x)
 		{
-			if (tab_map_cpy[y][x] == 'P')
-				return (x);
+			if (tab_map_cpy[y][x] != 'P' && tab_map_cpy[y][x] != 'C'
+			&& tab_map_cpy[y][x] != 'E' && tab_map_cpy[y][x] != '0'
+			&& tab_map_cpy[y][x] != '1')
+				return (ft_printf("ERROR\nunknown characters on the map\n"), -1);
 			x++;
 		}
 		y++;
@@ -47,20 +34,52 @@ int	gps_x_player(char **tab_map_cpy, t_len *len)
 	return (0);
 }
 
-int	gps_y_player(char **tab_map_cpy, t_len *len)
+size_t	check_path(char **tab_map_cpy, int x, int y, size_t check)
 {
-	int	x;
-	int	y;
+	if (tab_map_cpy[y][x - 1] == '0' || tab_map_cpy[y][x - 1] == 'C')
+	{
+		tab_map_cpy[y][x - 1] = '*';
+		check = 1;
+	}
+	if (tab_map_cpy[y][x + 1] == '0' || tab_map_cpy[y][x + 1] == 'C')
+	{
+		tab_map_cpy[y][x + 1] = '*';
+		check = 1;
+	}
+	if (tab_map_cpy[y - 1][x] == '0' || tab_map_cpy[y - 1][x] == 'C')
+	{
+		tab_map_cpy[y - 1][x] = '*';
+		check = 1;
+	}
+	if (tab_map_cpy[y + 1][x] == '0' || tab_map_cpy[y + 1][x] == 'C')
+	{
+		tab_map_cpy[y + 1][x] = '*';
+		check = 1;
+	}
+	return (check);
+}
 
-	x = 0;
+int	is_finishable(char **tab_map_cpy, t_len *len)
+{
+	int		x;
+	int		y;
+
 	y = 0;
 	while (tab_map_cpy[y] && y < len->y)
 	{
 		x = 0;
-		while (tab_map_cpy[y][x])
+		while (tab_map_cpy[y][x] && x < len->x)
 		{
-			if (tab_map_cpy[y][x] == 'P')
-				return (y);
+			if (tab_map_cpy[y][x] == 'C')
+				return (ft_printf("ERROR \nmap can not be finished 1\n"), -1);
+			if (tab_map_cpy[y][x] == 'E')
+			{
+				if (tab_map_cpy[y][x + 1] != '*'
+				|| tab_map_cpy[y][x - 1] != '*'
+				|| tab_map_cpy[y + 1][x] != '*'
+				|| tab_map_cpy[y - 1][x] != '*')
+					return (ft_printf("ERROR \nmap can not be finished 2\n"), -1);
+			}
 			x++;
 		}
 		y++;
@@ -68,50 +87,31 @@ int	gps_y_player(char **tab_map_cpy, t_len *len)
 	return (0);
 }
 
-void	test_map(char **tab_map_cpy, t_len *len)
+int	test_map(char **tab_map_cpy, t_len *len)
 {
 	size_t	check;
 	int		x;
 	int		y;
 
 	check = 1;
-	x = gps_x_player(tab_map_cpy, len);
-	y = gps_y_player(tab_map_cpy, len);
-	ft_printf("x = %i\n", x);
-	ft_printf("y = %i\n", y);
+	tab_map_cpy[gps_y_player(tab_map_cpy, len)]
+	[gps_x_player(tab_map_cpy, len)] = '*';
 	while (check == 1)
 	{
 		check = 0;
+		y = 0;
 		while (tab_map_cpy[y] && y < len->y)
 		{
 			x = 0;
 			while (tab_map_cpy[y][x] && x < len->x)
-			{	
-				if (tab_map_cpy[y - 1][x] == '0' || tab_map_cpy[y - 1][x] == 'C')
-				{
-					tab_map_cpy[y - 1][x] = '*';
-					check = 1;
-				}
-				if (tab_map_cpy[y + 1][x] == '0' || tab_map_cpy[y + 1][x] == 'C')
-				{
-					tab_map_cpy[y + 1][x] = '*';
-					check = 1;
-				}
-				if (tab_map_cpy[y][x - 1] == '0' || tab_map_cpy[y][x - 1] == 'C')
-				{
-					tab_map_cpy[y][x - 1] = '*';
-					check = 1;
-				}
-				if (tab_map_cpy[y][x - 1] == '0' || tab_map_cpy[y][x - 1] == 'C')
-				{
-					tab_map_cpy[y][x - 1] = '*';
-					check = 1;
-				}
+			{
+				if (tab_map_cpy[y][x] == '*')
+					check = check_path(tab_map_cpy, x, y, check);
 				x++;
 			}
-			ft_printf("%s", tab_map_cpy[y]);
 			y++;
 		}
 	}
-	return ;
+	is_finishable(tab_map_cpy, len);
+	return (0);
 }
