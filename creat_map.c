@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:02:49 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/18 16:45:24 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/19 12:54:30 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	creat_tab_map_cpy(int fd, t_len *len)
 	if (is_closed_map_x(tab_map_cpy, len) == -1
 		|| is_closed_map_y(tab_map_cpy, len) == -1
 		|| check_char(tab_map_cpy, len))
-		return (-1);
+		return (free_map(tab_map_cpy, len), -1);
 	test_map(tab_map_cpy, len);
 	return (free_map(tab_map_cpy, len), 1);
 }

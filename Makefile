@@ -6,7 +6,7 @@
 #    By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 14:25:35 by bfaure            #+#    #+#              #
-#    Updated: 2023/01/16 15:58:46 by bfaure           ###   ########lyon.fr    #
+#    Updated: 2023/01/19 14:56:20 by bfaure           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME		=	so_long
 
 LIBFT		=	libft.a
 
-LIBMLX		=	libmlx.dylib
+LIBMLX		=	libmlx.a
 
 # ---- Directories ---- #
 
@@ -26,7 +26,7 @@ DIR_OBJS	=	.objs/
 
 DIR_SRCS	=	./
 
-DIR_MLX		=	minilibx_mms_20200219/
+DIR_MLX		=	minilibx_opengl_20191021/
 
 DIR_LIBFT	=	Libft/
 
@@ -37,6 +37,9 @@ HEAD			=	header/so_long.h
 SRCS			=	main.c\
 					test_map.c\
 					map_error.c\
+					utils.c\
+					creat_map.c\
+					map_init.c\
 
 OBJS = ${SRCS:%.c=${DIR_OBJS}%.o}
 

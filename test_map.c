@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:42:54 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/18 17:03:52 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/19 14:06:37 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,9 @@ int	is_finishable(char **tab_map_cpy, t_len *len)
 			if (tab_map_cpy[y][x] == 'E')
 			{
 				if (tab_map_cpy[y][x + 1] != '*'
-				|| tab_map_cpy[y][x - 1] != '*'
-				|| tab_map_cpy[y + 1][x] != '*'
-				|| tab_map_cpy[y - 1][x] != '*')
+				&& tab_map_cpy[y][x - 1] != '*'
+				&& tab_map_cpy[y + 1][x] != '*'
+				&& tab_map_cpy[y - 1][x] != '*')
 					return (ft_printf("ERROR \nmap can not be finished 2\n"), -1);
 			}
 			x++;

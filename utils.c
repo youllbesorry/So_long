@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:04:19 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/18 16:13:30 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/19 12:55:05 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	free_map(char **tab_map, t_len *len)
 	int	i;
 
 	i = 0;
-	while (i < len->y + 2)
+	while (i < len->y + 1)
 	{
 		free(tab_map[i]);
 		i++;
