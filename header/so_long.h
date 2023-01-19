@@ -6,13 +6,14 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:44:36 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/19 14:59:49 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/19 21:21:45 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include <stdint.h>
 # include <fcntl.h>
 # include "struct.h"
 # include <stdlib.h>
