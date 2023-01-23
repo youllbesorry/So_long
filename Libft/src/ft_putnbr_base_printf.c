@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 12:56:15 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/12 14:01:52 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/23 10:25:20 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,7 @@ int	ft_putnbr_base_printf(unsigned int nbr, char *base)
 
 	size = 0;
 	len = ft_strlen_printf(base);
-	if (nbr < 0)
-	{
-		size++;
-		write(1, "-", 1);
-		ft_putnbr_base_printf(nbr *= -1, base);
-	}
-	else if (nbr >= len)
+	if (nbr >= len)
 	{
 		size += ft_putnbr_base_printf(nbr / len, base);
 		size += ft_putnbr_base_printf(nbr % len, base);
