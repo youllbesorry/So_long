@@ -32,7 +32,9 @@ int	main(int argc, char **argv)
 		if (creat_tab_map_cpy(fd, &len) == -1)
 			return (close(fd), -1);
 		close(fd);
-		map_init(creat_tab_map(fd, &len));
+		fd = open(argv[1], O_RDONLY);
+		map_init(creat_tab_map(fd, &len), &len);
+		close(fd);
 	}
 	else
 		return (ft_printf("ERROR\nyou need to pass at leas one maps\n"), -1);

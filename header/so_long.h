@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:44:36 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/19 21:21:45 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/24 13:22:18 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 int		len_error(char *line);
 int		check_len_error(int fd);
-int		map_init(char **tab_map);
+int		map_init(char **tab_map, t_len *len);
 int		find_pce(char **tab_map, t_len *len);
 int		free_map(char **tab_map, t_len *len);
 int		creat_tab_map_cpy(int fd, t_len *len);

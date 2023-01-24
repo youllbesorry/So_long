@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:19:43 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/19 21:18:06 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/24 15:32:34 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,20 @@ typedef struct s_gps_parsing
 	int	y;
 }	t_gps_p;
 
+typedef struct s_image
+{
+	void	*floor;
+	void	*exit;
+	void	*rocks;
+	void	*wall;
+	void	*player;
+}	t_img;
+
 typedef struct s_data
 {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
+	int		img_width;
+	int		img_height;
+	t_img	img;
 }	t_data;
 
 #endif

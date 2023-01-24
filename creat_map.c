@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:02:49 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/19 12:54:30 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/24 14:24:29 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ char	**creat_tab_map(int fd, t_len *len)
 		tab_map[i] = ft_strdup(line);
 		if (!tab_map[i])
 			return (free_map(tab_map, len), NULL);
-		ft_printf("%s", tab_map[i]);
 		free(line);
 		i++;
 	}
