@@ -6,22 +6,22 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:42:54 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/24 13:17:25 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/25 18:53:08 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/so_long.h"
 
-int	check_char(char **tab_map_cpy, t_len *len)
+int	check_char(char **tab_map_cpy, t_data *data)
 {
 	int	x;
 	int	y;
 
 	y = 0;
-	while (tab_map_cpy[y] && y < len->y)
+	while (tab_map_cpy[y] && y < data->len.y)
 	{
 		x = 0;
-		while (tab_map_cpy[y][x] && x < len->x)
+		while (tab_map_cpy[y][x] && x < data->len.x)
 		{
 			if (tab_map_cpy[y][x] != 'P' && tab_map_cpy[y][x] != 'C'
 			&& tab_map_cpy[y][x] != 'E' && tab_map_cpy[y][x] != '0'
@@ -59,16 +59,16 @@ size_t	check_path(char **tab_map_cpy, int x, int y, size_t check)
 	return (check);
 }
 
-int	is_finishable(char **tab_map_cpy, t_len *len)
+int	is_finishable(char **tab_map_cpy, t_data *data)
 {
 	int		x;
 	int		y;
 
 	y = 0;
-	while (tab_map_cpy[y] && y < len->y)
+	while (tab_map_cpy[y] && y < data->len.y)
 	{
 		x = 0;
-		while (tab_map_cpy[y][x] && x < len->x)
+		while (tab_map_cpy[y][x] && x < data->len.x)
 		{
 			if (tab_map_cpy[y][x] == 'C')
 				return (ft_printf("ERROR \nmap can not be finished 1\n"), -1);
@@ -87,23 +87,23 @@ int	is_finishable(char **tab_map_cpy, t_len *len)
 	return (0);
 }
 
-int	test_map(char **tab_map_cpy, t_len *len)
+int	test_map(char **tab_map_cpy, t_data *data)
 {
 	size_t	check;
 	int		x;
 	int		y;
 
 	check = 1;
-	tab_map_cpy[gps_y_player(tab_map_cpy, len)]
-	[gps_x_player(tab_map_cpy, len)] = '*';
+	tab_map_cpy[gps_y_player(tab_map_cpy, data)]
+	[gps_x_player(tab_map_cpy, data)] = '*';
 	while (check == 1)
 	{
 		check = 0;
 		y = 0;
-		while (tab_map_cpy[y] && y < len->y)
+		while (tab_map_cpy[y] && y < data->len.y)
 		{
 			x = 0;
-			while (tab_map_cpy[y][x] && x < len->x)
+			while (tab_map_cpy[y][x] && x < data->len.x)
 			{
 				if (tab_map_cpy[y][x] == '*')
 					check = check_path(tab_map_cpy, x, y, check);
@@ -112,6 +112,6 @@ int	test_map(char **tab_map_cpy, t_len *len)
 			y++;
 		}
 	}
-	is_finishable(tab_map_cpy, len);
+	is_finishable(tab_map_cpy, data);
 	return (0);
 }

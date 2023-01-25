@@ -6,7 +6,7 @@
 #    By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 14:25:35 by bfaure            #+#    #+#              #
-#    Updated: 2023/01/23 11:10:38 by bfaure           ###   ########lyon.fr    #
+#    Updated: 2023/01/25 17:09:09 by bfaure           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ SRCS			=	main.c\
 					utils.c\
 					creat_map.c\
 					map_init.c\
+					event.c\
 
 OBJS = ${SRCS:%.c=${DIR_OBJS}%.o}
 

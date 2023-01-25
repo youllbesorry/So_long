@@ -6,12 +6,29 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:19:43 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/24 15:32:34 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/25 18:31:01 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
+
+enum
+{
+	ON_KEYDOWN = 2,
+	ON_KEYUP = 3,
+	ON_EXPOSE = 12,
+	ON_DESTROY = 17
+};
+
+enum
+{
+	up = 13,
+	down = 1,
+	left = 0,
+	right = 2,
+	quit = 53
+};
 
 typedef struct s_characters
 {
@@ -45,7 +62,11 @@ typedef struct s_data
 {
 	int		img_width;
 	int		img_height;
+	char	**tab_map;
+	void	*mlx;
+	void	*win;
 	t_img	img;
+	t_len	len;
 }	t_data;
 
 #endif

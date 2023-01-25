@@ -15,25 +15,29 @@
 int	main(int argc, char **argv)
 {
 	int		fd;
-	t_len	len;
+	char	**tab_map;
+	t_data	data;
 
 	fd = 0;
-	len.y = 0;
 	if (argc > 1)
 	{
+		ft_printf("map1\n");
 		fd = open(argv[1], O_RDONLY);
-		len.y = check_len_error(fd);
-		if (len.y == 0)
+		data.len.y = check_len_error(fd);
+		if (data.len.y == 0)
 			return (close(fd), ft_printf("ERROR\nempty map\n"), -1);
-		if (len.y == -1)
+		if (data.len.y == -1)
 			return (close(fd), -1);
 		close(fd);
 		fd = open(argv[1], O_RDONLY);
-		if (creat_tab_map_cpy(fd, &len) == -1)
+		if (creat_tab_map_cpy(fd, &data) == -1)
 			return (close(fd), -1);
+		ft_printf("map2\n");
 		close(fd);
 		fd = open(argv[1], O_RDONLY);
-		map_init(creat_tab_map(fd, &len), &len);
+		tab_map = creat_tab_map(fd, &data);
+		data.tab_map = tab_map;
+		map_init(&data);
 		close(fd);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:04:19 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/19 12:55:05 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/25 19:04:38 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ int	check_len_error(int fd)
 	return (i);
 }
 
-int	free_map(char **tab_map, t_len *len)
+int	free_map(char **tab_map, t_data *data)
 {
 	int	i;
 
 	i = 0;
-	while (i < len->y + 1)
+	while (i < data->len.y + 1)
 	{
 		free(tab_map[i]);
 		i++;
@@ -45,17 +45,17 @@ int	free_map(char **tab_map, t_len *len)
 	return (-1);
 }
 
-int	gps_x_player(char **tab_map_cpy, t_len *len)
+int	gps_x_player(char **tab_map_cpy, t_data *data)
 {
 	int	x;
 	int	y;
 
 	x = 0;
 	y = 0;
-	while (tab_map_cpy[y] && y < len->y)
+	while (tab_map_cpy[y] && y < data->len.y)
 	{
 		x = 0;
-		while (tab_map_cpy[y][x] && x < len->x)
+		while (tab_map_cpy[y][x] && x < data->len.x)
 		{
 			if (tab_map_cpy[y][x] == 'P')
 				return (x);
@@ -66,14 +66,14 @@ int	gps_x_player(char **tab_map_cpy, t_len *len)
 	return (0);
 }
 
-int	gps_y_player(char **tab_map_cpy, t_len *len)
+int	gps_y_player(char **tab_map_cpy, t_data *data)
 {
 	int	x;
 	int	y;
 
 	x = 0;
 	y = 0;
-	while (tab_map_cpy[y] && y < len->y)
+	while (tab_map_cpy[y] && y < data->len.y)
 	{
 		x = 0;
 		while (tab_map_cpy[y][x])

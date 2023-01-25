@@ -6,20 +6,20 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:02:49 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/24 14:24:29 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/25 19:06:33 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/so_long.h"
 
-char	**creat_tab_map(int fd, t_len *len)
+char	**creat_tab_map(int fd, t_data *data)
 {
 	char	*line;
 	char	**tab_map;
 	size_t	i;
 
 	i = 0;
-	tab_map = malloc(sizeof(char *) * len->y);
+	tab_map = malloc(sizeof(char *) * data->len.y);
 	if (!tab_map)
 		return (NULL);
 	while (1)
@@ -29,21 +29,21 @@ char	**creat_tab_map(int fd, t_len *len)
 			break ;
 		tab_map[i] = ft_strdup(line);
 		if (!tab_map[i])
-			return (free_map(tab_map, len), NULL);
+			return (free_map(tab_map, data), NULL);
 		free(line);
 		i++;
 	}
 	return (tab_map);
 }
 
-int	creat_tab_map_cpy(int fd, t_len *len)
+int	creat_tab_map_cpy(int fd, t_data *data)
 {
 	char	*line;
 	char	**tab_map_cpy;
 	size_t	i;
 
 	i = 0;
-	tab_map_cpy = malloc(sizeof(char *) * len->y);
+	tab_map_cpy = malloc(sizeof(char *) * data->len.y);
 	if (!tab_map_cpy)
 		return (-1);
 	while (1)
@@ -53,14 +53,14 @@ int	creat_tab_map_cpy(int fd, t_len *len)
 			break ;
 		tab_map_cpy[i] = ft_strdup(line);
 		if (!tab_map_cpy[i])
-			return (free_map(tab_map_cpy, len), -1);
+			return (free_map(tab_map_cpy, data), -1);
 		free(line);
 		i++;
 	}
-	if (is_closed_map_x(tab_map_cpy, len) == -1
-		|| is_closed_map_y(tab_map_cpy, len) == -1
-		|| check_char(tab_map_cpy, len))
-		return (free_map(tab_map_cpy, len), -1);
-	test_map(tab_map_cpy, len);
-	return (free_map(tab_map_cpy, len), 1);
+	if (is_closed_map_x(tab_map_cpy, data) == -1
+		|| is_closed_map_y(tab_map_cpy, data) == -1
+		|| check_char(tab_map_cpy, data))
+		return (free_map(tab_map_cpy, data), -1);
+	test_map(tab_map_cpy, data);
+	return (free_map(tab_map_cpy, data), 1);
 }
