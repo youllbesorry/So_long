@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:44:36 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/25 18:51:08 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/26 15:11:27 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,13 @@
 # include "../Libft/headers/get_next_line_bonus.h"
 
 int		len_error(char *line);
-int		check_len_error(int fd);
+int		destroy(t_data *data);
 int		map_init(t_data *data);
+int		check_len_error(int fd);
+int		dis_to_the_right(int x_p, int y_p, t_data *data);
+int		dis_to_the_left(int x_p, int y_p, t_data *data);
+int		dis_to_the_up(int x_p, int y_p, t_data *data);
+int		dis_to_the_down(int x_p, int y_p, t_data *data);
 int		key_check(int keycode, t_data *data);
 int		find_pce(char **tab_map, t_data *data);
 int		free_map(char **tab_map, t_data *data);

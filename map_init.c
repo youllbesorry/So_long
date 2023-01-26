@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:51:38 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/25 19:16:19 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/26 12:38:21 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ int	map_init(t_data *data)
 	data->img.player = mlx_xpm_file_to_image(data->mlx, "./images/player.xpm",
 			&data->img_width, &data->img_height);
 	fill_map(data->tab_map, data);
-	mlx_key_hook(data->win, key_check, data);
+	mlx_hook(data->win, ON_KEYDOWN, 0, key_check, data);
+	mlx_hook(data->win, ON_DESTROY, (1L << 5), destroy, data);
 	mlx_loop(data->mlx);
 	return (0);
 }
