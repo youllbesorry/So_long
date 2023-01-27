@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:19:43 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/27 11:32:29 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/27 13:29:09 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ typedef struct s_image
 
 typedef struct s_data
 {
+	int		player_x;
+	int		player_y;
 	int		img_width;
 	int		img_height;
 	char	**tab_map;

@@ -35,6 +35,8 @@ int	main(int argc, char **argv)
 		fd = open(argv[1], O_RDONLY);
 		tab_map = creat_tab_map(fd, &data);
 		data.tab_map = tab_map;
+		data.player_x = gps_x_player(data.tab_map, &data) * 32;
+		data.player_y = gps_y_player(data.tab_map, &data) * 32;
 		map_init(&data);
 		close(fd);
 	}
