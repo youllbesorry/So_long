@@ -21,7 +21,6 @@ int	main(int argc, char **argv)
 	fd = 0;
 	if (argc > 1)
 	{
-		ft_printf("map1\n");
 		fd = open(argv[1], O_RDONLY);
 		data.len.y = check_len_error(fd);
 		if (data.len.y == 0)
@@ -32,7 +31,6 @@ int	main(int argc, char **argv)
 		fd = open(argv[1], O_RDONLY);
 		if (creat_tab_map_cpy(fd, &data) == -1)
 			return (close(fd), -1);
-		ft_printf("map2\n");
 		close(fd);
 		fd = open(argv[1], O_RDONLY);
 		tab_map = creat_tab_map(fd, &data);

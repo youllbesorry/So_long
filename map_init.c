@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:51:38 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/26 12:38:21 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/27 11:19:19 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,28 +37,23 @@ int	fill_map(char **tab_map, t_data	*data)
 	int		y;
 
 	y = 0;
-	ft_printf("fill1\n");
 	while (tab_map[y] && y < data->len.y + 1)
 	{
 		x = 0;
-		ft_printf("fill2\n");
 		while (tab_map[y][x] && x < data->len.x + 1)
 		{
-			ft_printf("fill3\n");
 			put_image(tab_map, data, y, x);
-			ft_printf("fill4\n");
 			x++;
 		}
-		ft_printf("fill5\n");
 		y++;
 	}
-	ft_printf("fill6\n");
 	return (0);
 }
 
 int	map_init(t_data *data)
 {
 	data->mlx = mlx_init();
+	ft_printf("init\n");
 	data->win = mlx_new_window(data->mlx, (data->len.x + 1) * 32,
 			(data->len.y + 1) * 32, "So long");
 	data->img.floor = mlx_xpm_file_to_image(data->mlx, "./images/floor.xpm",
