@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:26:33 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/27 13:35:01 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/01/30 15:46:27 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,10 @@ int	key_check(int keycode, t_data *data)
 	{
 		ft_printf("up\n");
 		ft_printf("%i\n", dis_up);
-		if (dis_up > 0)
-			data->player_y -= 8;
+		if (dis_up > 32)
+			data->player_y -= 4;
+		mlx_clear_window(data->mlx, data->win);
+		fill_map(data->tab_map, data);
 		mlx_put_image_to_window(data->mlx, data->win, data->img.player,
 			(data->player_x), (data->player_y));
 	}
@@ -51,16 +53,34 @@ int	key_check(int keycode, t_data *data)
 	{
 		ft_printf("down\n");
 		ft_printf("%i\n", dis_down);
+		if (dis_down > 0)
+			data->player_y += 4;
+		mlx_clear_window(data->mlx, data->win);
+		fill_map(data->tab_map, data);
+		mlx_put_image_to_window(data->mlx, data->win, data->img.player,
+			(data->player_x), (data->player_y));
 	}
 	if (keycode == left)
 	{
 		ft_printf("left\n");
 		ft_printf("%i\n", dis_left);
+		if (dis_left > 32)
+			data->player_x -= 4;
+		mlx_clear_window(data->mlx, data->win);
+		fill_map(data->tab_map, data);
+		mlx_put_image_to_window(data->mlx, data->win, data->img.player,
+			(data->player_x), (data->player_y));
 	}
 	if (keycode == right)
 	{
 		ft_printf("right\n");
 		ft_printf("%i\n", dis_right);
+		if (dis_right > 0)
+			data->player_x += 4;
+		mlx_clear_window(data->mlx, data->win);
+		fill_map(data->tab_map, data);
+		mlx_put_image_to_window(data->mlx, data->win, data->img.player,
+			(data->player_x), (data->player_y));
 	}
 	return (0);
 }
