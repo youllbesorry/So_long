@@ -6,7 +6,7 @@
 #    By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 14:25:35 by bfaure            #+#    #+#              #
-#    Updated: 2023/01/26 13:12:14 by bfaure           ###   ########lyon.fr    #
+#    Updated: 2023/02/06 16:29:01 by bfaure           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ DIR_OBJS	=	.objs/
 
 DIR_SRCS	=	./
 
-DIR_MLX		=	minilibx_opengl_20191021/
+DIR_MLX		=	minilibx-linux/
 
 DIR_LIBFT	=	Libft/
 
@@ -59,6 +59,8 @@ MKDIR	=	mkdir -p
 
 all		:	${NAME}
 
+.PHONY:	all clean fclean re fclean_lib fclean_all
+
 # ---- Variables Rules ---- #
 
 ${NAME}	:	${OBJS} ${addprefix ${DIR_LIBFT}, ${LIBFT}} ${addprefix ${DIR_MLX}, ${LIBMLX}}
@@ -72,7 +74,7 @@ ${addprefix ${DIR_MLX}, ${LIBMLX}}	:
 
 # ---- Compiled Rules ---- #
 
-${DIR_OBJS}%.o	:	${DIR_SRCS}%.c ${HEAD} ./Libft/headers/ft_printf.h ./Libft/headers/get_next_line_bonus.h ./Libft/headers/libft.h | ${DIR_OBJS}
+${DIR_OBJS}%.o	:	${DIR_SRCS}%.c Makefile ${HEAD} ./Libft/headers/ft_printf.h ./Libft/headers/get_next_line_bonus.h ./Libft/headers/libft.h | ${DIR_OBJS}
 					${CC} ${CFLAGS} -I ${addprefix ${DIR_LIBFT}, headers/} -I ${DIR_MLX} -I. -c $< -o $@
 
 ${DIR_OBJS}		:
