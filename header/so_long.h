@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:44:36 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/30 14:36:53 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/07 12:56:26 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <unistd.h>
 # include "../Libft/headers/libft.h"
 # include "../Libft/headers/ft_printf.h"
-# include "../minilibx_opengl_20191021/mlx.h"
+# include "../minilibx-linux/mlx.h"
 # include "../Libft/headers/get_next_line_bonus.h"
 
 int		len_error(char *line);

@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:38:58 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/06 16:32:49 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/07 13:00:08 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,22 +55,22 @@ char	*line_get(char *buff, ssize_t cursor, char *line, int fd)
 
 char	*get_next_line(int fd)
 {
-	static char	buff[OPEN_MAX][BUFFER_SIZE + 1];
+	static char	buff[BUFFER_SIZE + 1];
 	ssize_t		cursor;
 	char		*line;
 
 	cursor = 1;
-	if (fd < 0 || read(fd, 0, 0) == -1 || BUFFER_SIZE < 1 || fd >= OPEN_MAX)
+	if (fd < 0 || read(fd, 0, 0) == -1 || BUFFER_SIZE < 1)
 		return (NULL);
 	line = malloc(sizeof(char) * 0);
 	if (!line)
-		return (clear_buff(buff[fd]), free(line), NULL);
+		return (clear_buff(buff), free(line), NULL);
 	line[0] = '\0';
-	line = line_get(buff[fd], cursor, line, fd);
+	line = line_get(buff, cursor, line, fd);
 	if (!line)
-		return (clear_buff(buff[fd]), free(line), NULL);
+		return (clear_buff(buff), free(line), NULL);
 	if (line[0] == 0)
-		return (clear_buff(buff[fd]), free(line), NULL);
+		return (clear_buff(buff), free(line), NULL);
 	else
 		return (line);
 }
