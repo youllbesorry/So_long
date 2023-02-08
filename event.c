@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:26:33 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/30 15:46:27 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/08 17:22:11 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ int	key_check(int keycode, t_data *data)
 	dis_down = dis_to_the_down(data->player_x, data->player_y, data);
 	dis_left = dis_to_the_left(data->player_x, data->player_y, data);
 	dis_right = dis_to_the_right(data->player_x, data->player_y, data);
-	if (keycode == quit)
+	if (keycode == 9)
 	{
+		ft_printf("exit\n");
 		free_map(data->tab_map, data);
 		mlx_destroy_window(data->mlx, data->win);
 		exit (0);

@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:02:49 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/25 19:06:33 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/08 16:19:27 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	**creat_tab_map(int fd, t_data *data)
 	size_t	i;
 
 	i = 0;
-	tab_map = malloc(sizeof(char *) * data->len.y);
+	tab_map = malloc(sizeof(char *) * data->len.y + 1);
 	if (!tab_map)
 		return (NULL);
 	while (1)
@@ -33,6 +33,7 @@ char	**creat_tab_map(int fd, t_data *data)
 		free(line);
 		i++;
 	}
+	i = 0;
 	return (tab_map);
 }
 

@@ -6,7 +6,7 @@
 #    By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 14:25:35 by bfaure            #+#    #+#              #
-#    Updated: 2023/02/06 16:29:01 by bfaure           ###   ########lyon.fr    #
+#    Updated: 2023/02/08 16:17:12 by bfaure           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ DIR_OBJS	=	.objs/
 
 DIR_SRCS	=	./
 
-DIR_MLX		=	minilibx-linux/
+DIR_MLX		=	mlx/
 
 DIR_LIBFT	=	Libft/
 
@@ -48,7 +48,7 @@ OBJS = ${SRCS:%.c=${DIR_OBJS}%.o}
 # ---- Compilation ---- #
 
 CC		=	cc
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -g3
 
 # ---- Commands ---- #
 
@@ -64,8 +64,8 @@ all		:	${NAME}
 # ---- Variables Rules ---- #
 
 ${NAME}	:	${OBJS} ${addprefix ${DIR_LIBFT}, ${LIBFT}} ${addprefix ${DIR_MLX}, ${LIBMLX}}
-			${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L${DIR_LIBFT} -lft -L${DIR_MLX} -lmlx -framework OpenGL -framework AppKit
-
+			${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L${DIR_LIBFT} -lft -L${DIR_MLX} -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+			
 ${addprefix ${DIR_LIBFT}, ${LIBFT}}	:
 			make ${LIBFT} -C ${DIR_LIBFT}
 
@@ -95,4 +95,4 @@ fclean			:	clean
 fclean_all		:	fclean fclean_lib
 
 re				:	fclean_all
-					$(MAKE) -j 4
+					$(MAKE)

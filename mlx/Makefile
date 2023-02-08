@@ -36,9 +36,9 @@ SRC	= mlx_init.c mlx_new_window.c mlx_pixel_put.c mlx_loop.c \
 
 OBJ_DIR = obj
 OBJ	= $(addprefix $(OBJ_DIR)/,$(SRC:%.c=%.o))
-CFLAGS	= -O3 -I$(INC)
+CFLAGS	= -O3 -I$(INC) -w
 
-all	: $(NAME)
+all	: $(NAME) do_configure
 
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(OBJ_DIR)
@@ -59,6 +59,9 @@ show:
 	@printf "CFLAGS		: $(CFLAGS)\n"
 	@printf "SRC		:\n	$(SRC)\n"
 	@printf "OBJ		:\n	$(OBJ)\n"
+
+do_configure	:
+	./configure
 
 clean	:
 	rm -rf $(OBJ_DIR)/ $(NAME) $(NAME_UNAME) *~ core *.core

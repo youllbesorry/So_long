@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:19:43 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/27 13:29:09 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/08 17:22:48 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ enum
 
 enum
 {
-	up = 13,
-	down = 1,
-	left = 0,
-	right = 2,
-	quit = 53
+	up = 119,
+	down = 115,
+	left = 97,
+	right = 100,
+	quit = 65307
 };
 
 typedef struct s_characters
