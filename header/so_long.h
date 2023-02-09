@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:44:36 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/08 14:36:24 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/09 17:03:54 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,10 @@ int		is_closed_map_x(char **tab_map, t_data *data);
 int		is_closed_map_y(char **tab_map, t_data *data);
 int		gps_x_player(char **tab_map_cpy, t_data *data);
 int		gps_y_player(char **tab_map_cpy, t_data *data);
-int		fill_map(char **tab_map, t_data	*data);
+int		fill_map(t_data	*data);
 int		put_image(char **tab_map, t_data *data, int y, int x);
+int		key_check_right(int keycode, t_data *data);
+int		key_check_up(int keycode, t_data *data);
 
 char	**creat_tab_map(int fd, t_data *data);
 

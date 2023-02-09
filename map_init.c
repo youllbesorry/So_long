@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:51:38 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/08 17:18:17 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/09 17:08:13 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,23 @@ int	put_image(char **tab_map, t_data *data, int y, int x)
 	if (tab_map[y][x] == 'C')
 		mlx_put_image_to_window(data->mlx, data->win, data->img.rocks,
 			(x * 32), (y * 32));
-	// if (tab_map[y][x] == 'P')
-	// 	mlx_put_image_to_window(data->mlx, data->win, data->img.player,
-	// 		(x * 32), (y * 32));
+	mlx_put_image_to_window(data->mlx, data->win, data->img.player,
+		(data->player_x), (data->player_y));
 	return (0);
 }
 
-int	fill_map(char **tab_map, t_data	*data)
+int	fill_map(t_data	*data)
 {
 	int		x;
 	int		y;
 
 	y = 0;
-	while (tab_map[y] && y < data->len.y + 1)
+	while (data->tab_map[y] && y < data->len.y + 1)
 	{
 		x = 0;
-		while (tab_map[y][x] && x < data->len.x + 1)
+		while (data->tab_map[y][x] && x < data->len.x + 1)
 		{
-			put_image(tab_map, data, y, x);
+			put_image(data->tab_map, data, y, x);
 			x++;
 		}
 		y++;
@@ -65,11 +64,12 @@ int	map_init(t_data *data)
 			&data->img_width, &data->img_height);
 	data->img.player = mlx_xpm_file_to_image(data->mlx, "./images/player.xpm",
 			&data->img_width, &data->img_height);
-	fill_map(data->tab_map, data);
+	fill_map(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img.player,
 		(data->player_x), (data->player_y));
 	mlx_hook(data->win, ON_KEYDOWN, (1L << 0), key_check, data);
 	mlx_hook(data->win, ON_DESTROY, (1L << 5), destroy, data);
+	mlx_loop_hook(data->mlx, fill_map, data);
 	mlx_loop(data->mlx);
 	return (0);
 }
