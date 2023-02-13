@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:19:43 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/08 17:22:48 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/13 17:39:35 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,17 @@ typedef struct s_image
 
 typedef struct s_data
 {
-	int		player_x;
-	int		player_y;
-	int		img_width;
-	int		img_height;
-	char	**tab_map;
-	void	*mlx;
-	void	*win;
-	t_img	img;
-	t_len	len;
+	int				player_x;
+	int				player_y;
+	int				img_width;
+	int				img_height;
+	int				coll;
+	char			**tab_map;
+	void			*mlx;
+	void			*win;
+	t_img			img;
+	t_len			len;
+	t_characters	characters;
 }	t_data;
 
 #endif

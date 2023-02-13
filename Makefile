@@ -6,7 +6,7 @@
 #    By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 14:25:35 by bfaure            #+#    #+#              #
-#    Updated: 2023/02/11 10:56:45 by bfaure           ###   ########lyon.fr    #
+#    Updated: 2023/02/13 18:00:49 by bfaure           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,8 @@ SRCS			=	main.c\
 					map_init.c\
 					event.c\
 					distance_cal.c\
+					distance_to_coll.c\
+					distance_to_exit.c\
 
 OBJS = ${SRCS:%.c=${DIR_OBJS}%.o}
 

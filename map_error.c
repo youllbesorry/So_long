@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:00:05 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/25 18:53:44 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/13 17:45:38 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,18 +80,17 @@ int	is_closed_map_y(char **tab_map_cpy, t_data *data)
 	return (1);
 }
 
-int	test_pce(char **tab_map_cpy, t_characters *characters,
-	t_gps_p *gps_p)
+int	test_pce(char **tab_map_cpy, t_data *data, t_gps_p *gps_p)
 {
 	if (tab_map_cpy[gps_p->y][gps_p->x] == 'P')
-		characters->p++;
-	if (characters->p > 1)
+		data->characters.p++;
+	if (data->characters.p > 1)
 		return (ft_printf("ERROR\nmore than 1 player finded\n"), -1);
 	if (tab_map_cpy[gps_p->y][gps_p->x] == 'C')
-		characters->c++;
+		data->characters.c++;
 	if (tab_map_cpy[gps_p->y][gps_p->x] == 'E')
-		characters->e++;
-	if (characters->e > 1)
+		data->characters.e++;
+	if (data->characters.e > 1)
 		return (ft_printf("ERROR\nmore than 1 exit on the map\n"), -1);
 	return (1);
 }
@@ -99,25 +98,24 @@ int	test_pce(char **tab_map_cpy, t_characters *characters,
 int	find_pce(char **tab_map_cpy, t_data *data)
 {
 	t_gps_p			gps_p;
-	t_characters	characters;
 
-	characters.p = 0;
-	characters.c = 0;
-	characters.e = 0;
+	data->characters.p = 0;
+	data->characters.c = 0;
+	data->characters.e = 0;
 	gps_p.y = 0;
 	while (tab_map_cpy[gps_p.y] && gps_p.y < data->len.y)
 	{
 		gps_p.x = 0;
 		while (tab_map_cpy[gps_p.y][gps_p.x] && gps_p.x++ < data->len.x)
-			if (test_pce(tab_map_cpy, &characters, &gps_p) == -1)
+			if (test_pce(tab_map_cpy, data, &gps_p) == -1)
 				return (-1);
 		gps_p.y++;
 	}
-	if ((characters.p < 1))
+	if ((data->characters.p < 1))
 		return (ft_printf("ERROR\nplayer not found\n"), -1);
-	if ((characters.c < 1))
+	if ((data->characters.c < 1))
 		return (ft_printf("ERROR\ncollectible not found\n"), -1);
-	if ((characters.e < 1))
+	if ((data->characters.e < 1))
 		return (ft_printf("ERROR\nexit not found\n"), -1);
 	return (1);
 }
