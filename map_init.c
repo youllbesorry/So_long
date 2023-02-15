@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:51:38 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/15 14:15:29 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/15 15:56:46 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	put_image(char **tab_map, t_data *data, int y, int x)
 {
+	mlx_string_put(data->mlx, data->win, 1, 10, 0, "move :");
+	mlx_string_put(data->mlx, data->win, 40, 10, 0, ft_itoa(data->move));
 	mlx_put_image_to_window(data->mlx, data->win, data->img.floor,
 		(x * 32), (y * 32));
 	mlx_put_image_to_window(data->mlx, data->win, data->img.player,
@@ -27,6 +29,8 @@ int	put_image(char **tab_map, t_data *data, int y, int x)
 	if (tab_map[y][x] == 'C')
 		mlx_put_image_to_window(data->mlx, data->win, data->img.rocks,
 			(x * 32), (y * 32));
+	mlx_string_put(data->mlx, data->win, 1, 10, 0, "move :");
+	mlx_string_put(data->mlx, data->win, 40, 10, 0, ft_itoa(data->move));
 	return (0);
 }
 
@@ -70,5 +74,5 @@ int	map_init(t_data *data)
 	mlx_hook(data->win, ON_DESTROY, (1L << 5), destroy, data);
 	mlx_loop_hook(data->mlx, loop, data);
 	mlx_loop(data->mlx);
-	return (0);	
+	return (0);
 }
