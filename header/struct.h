@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:19:43 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/14 20:02:55 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/15 14:01:58 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ typedef struct s_data
 {
 	int				player_x;
 	int				player_y;
+	int				player_diry;
+	int				player_dirx;
 	int				img_width;
 	int				img_height;
 	int				coll;

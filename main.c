@@ -21,6 +21,8 @@ int	main(int argc, char **argv)
 	fd = 0;
 	if (argc > 1)
 	{
+		if (ft_strnstr((const char *) argv[1], ".ber", ft_strlen(argv[1])) == 0)
+			return (ft_printf("ERROR\nMap not in .ber\n"), -1);
 		fd = open(argv[1], O_RDONLY);
 		data.len.y = check_len_error(fd);
 		if (data.len.y == 0)

@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:51:38 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/14 13:02:27 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/15 14:15:29 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	fill_map(t_data	*data)
 int	map_init(t_data *data)
 {
 	data->mlx = mlx_init();
+	mlx_do_key_autorepeatoff(data->mlx);
 	data->win = mlx_new_window(data->mlx, (data->len.x + 1) * 32,
 			(data->len.y + 1) * 32, "So long");
 	data->img.floor = mlx_xpm_file_to_image(data->mlx, "./images/floor.xpm",
@@ -65,8 +66,9 @@ int	map_init(t_data *data)
 	data->img.player = mlx_xpm_file_to_image(data->mlx, "./images/player.xpm",
 			&data->img_width, &data->img_height);
 	mlx_hook(data->win, ON_KEYDOWN, (1L << 0), key_check, data);
+	mlx_hook(data->win, ON_KEYUP, (1L << 1), key_check2, data);
 	mlx_hook(data->win, ON_DESTROY, (1L << 5), destroy, data);
-	mlx_loop_hook(data->mlx, fill_map, data);
+	mlx_loop_hook(data->mlx, loop, data);
 	mlx_loop(data->mlx);
-	return (0);
+	return (0);	
 }

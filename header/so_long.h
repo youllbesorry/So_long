@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:44:36 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/14 19:59:05 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/15 14:11:14 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int		fill_map(t_data	*data);
 int		map_init(t_data *data);
 int		check_len_error(int fd);
 int		key_check(int keycode, t_data *data);
+int		key_check2(int keycode, t_data *data);
 int		find_pce(char **tab_map, t_data *data);
 int		free_map(char **tab_map, t_data *data);
 int		creat_tab_map_cpy(int fd, t_data *data);
@@ -54,5 +55,6 @@ void	dis_to_the_right_coll(int x_p, int y_p, t_data *data);
 void	dis_to_the_right_exit(int x_p, int y_p, t_data *data);
 
 char	**creat_tab_map(int fd, t_data *data);
+int		loop(t_data *data);
 
 #endif
