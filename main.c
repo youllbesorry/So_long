@@ -32,12 +32,15 @@ int	main(int argc, char **argv)
 		if (creat_tab_map_cpy(fd, &data) == -1)
 			return (close(fd), -1);
 		close(fd);
+		if (data.len.y == data.len.x)
+			return (ft_printf("ERROR\nMap not rectangular\n"), -1);
 		fd = open(argv[1], O_RDONLY);
 		tab_map = creat_tab_map(fd, &data);
 		data.tab_map = tab_map;
 		data.player_x = gps_x_player(data.tab_map, &data) * 32;
 		data.player_y = gps_y_player(data.tab_map, &data) * 32;
 		data.coll = 0;
+		data.move = 0;
 		map_init(&data);
 		close(fd);
 	}

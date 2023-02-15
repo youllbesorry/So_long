@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:50:40 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/13 18:02:14 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/14 14:46:52 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,18 @@ void	dis_to_the_right_exit(int x_p, int y_p, t_data *data)
 	if (data->tab_map[(y_h / 32)][(x_p / 32) + 1] == 'E')
 	{
 		if (data->coll == data->characters.c)
+		{	
+			ft_printf("Congratulation\n");
 			destroy(data);
+		}
 	}
 	if (data->tab_map[(y_f / 32)][(x_p / 32) + 1] == 'E')
 	{
 		if (data->coll == data->characters.c)
+		{	
+			ft_printf("Congratulation\n");
 			destroy(data);
+		}
 	}
 }
 
@@ -41,12 +47,18 @@ void	dis_to_the_left_exit(int x_p, int y_p, t_data *data)
 	if (data->tab_map[(y_h / 32)][(x_p / 32)] == 'E')
 	{
 		if (data->coll == data->characters.c)
+		{	
+			ft_printf("Congratulation\n");
 			destroy(data);
+		}
 	}
 	if (data->tab_map[(y_f / 32)][(x_p / 32)] == 'E')
 	{
 		if (data->coll == data->characters.c)
+		{	
+			ft_printf("Congratulation\n");
 			destroy(data);
+		}
 	}	
 }
 
@@ -60,12 +72,18 @@ void	dis_to_the_up_exit(int x_p, int y_p, t_data *data)
 	if (data->tab_map[(y_p / 32)][(x_h / 32)] == 'E')
 	{
 		if (data->coll == data->characters.c)
+		{	
+			ft_printf("Congratulation\n");
 			destroy(data);
+		}
 	}
 	if (data->tab_map[(y_p / 32)][(x_f / 32)] == 'E')
 	{
 		if (data->coll == data->characters.c)
+		{	
+			ft_printf("Congratulation\n");
 			destroy(data);
+		}
 	}
 }
 
@@ -79,11 +97,17 @@ void	dis_to_the_down_exit(int x_p, int y_p, t_data *data)
 	if (data->tab_map[(y_p / 32) + 1][(x_h / 32)] == 'E')
 	{
 		if (data->coll == data->characters.c)
+		{	
+			ft_printf("Congratulation\n");
 			destroy(data);
+		}
 	}
 	if (data->tab_map[(y_p / 32) + 1][(x_f / 32)] == 'E')
 	{
 		if (data->coll == data->characters.c)
+		{
+			ft_printf("Congratulation\n");
 			destroy(data);
+		}
 	}
 }

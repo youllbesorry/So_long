@@ -6,21 +6,21 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:44:36 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/13 17:53:29 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/14 19:59:05 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <stdint.h>
 # include <fcntl.h>
+# include <stdint.h>
 # include "struct.h"
 # include <stdlib.h>
 # include <unistd.h>
+# include "../mlx/mlx.h"
 # include "../Libft/headers/libft.h"
 # include "../Libft/headers/ft_printf.h"
-# include "../mlx/mlx.h"
 # include "../Libft/headers/get_next_line_bonus.h"
 
 int		len_error(char *line);

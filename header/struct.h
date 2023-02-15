@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:19:43 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/13 17:39:35 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/14 20:02:55 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_data
 	int				img_width;
 	int				img_height;
 	int				coll;
+	int				move;
 	char			**tab_map;
 	void			*mlx;
 	void			*win;

@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:04:19 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/08 16:18:59 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/14 14:21:04 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,18 @@
 int	check_len_error(int fd)
 {
 	char	*line;
-	size_t	i;
+	int		i;
+	int		len;
 
 	i = 0;
+	len = 0;
 	while (1)
 	{
 		line = get_next_line(fd);
 		if (!line)
 			break ;
-		if (len_error(line) == -1)
+		len = len_error(line);
+		if (len == -1)
 			return (-1);
 		free(line);
 		i++;
