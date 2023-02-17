@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:26:33 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/15 14:41:18 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/17 16:22:04 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,15 @@
 
 int	destroy(t_data *data)
 {
+	mlx_destroy_image(data->mlx, data->img.floor);
+	mlx_destroy_image(data->mlx, data->img.exit);
+	mlx_destroy_image(data->mlx, data->img.wall);
+	mlx_destroy_image(data->mlx, data->img.player);
+	mlx_destroy_image(data->mlx, data->img.rocks);
 	free_map(data->tab_map, data);
 	mlx_destroy_window(data->mlx, data->win);
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
 	exit (0);
 	return (0);
 }
@@ -24,9 +31,7 @@ int	key_check(int keycode, t_data *data)
 {
 	if (keycode == quit)
 	{
-		free_map(data->tab_map, data);
-		mlx_destroy_window(data->mlx, data->win);
-		exit (0);
+		destroy(data);
 		return (0);
 	}
 	if (keycode == up)
