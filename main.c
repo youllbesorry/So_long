@@ -31,10 +31,19 @@ void	init_data(t_data *data)
 	data->player_diry = 0;
 	data->img_height = 0;
 	data->img_width = 0;
+	data->len.x = 0;
+	data->len.y = 0;
+	data->img.exit = NULL;
+	data->img.floor = NULL;
+	data->img.player = NULL;
+	data->img.rocks = NULL;
+	data->img.wall = NULL;
+	data->tab_map = NULL;
 }
 
 void	fill_data(t_data *data, int fd)
 {
+	data->tab_map = NULL;
 	data->tab_map = creat_tab_map(fd, data);
 	data->player_x = gps_x_player(data->tab_map, data) * 32;
 	data->player_y = gps_y_player(data->tab_map, data) * 32;
