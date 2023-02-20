@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:02:49 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/20 14:05:43 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/20 16:17:15 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,26 @@
 void	**creat_tab_map(int fd, t_data *data)
 {
 	char	*line;
-	//char	**tab_map;
 	size_t	i;
 
 	i = 0;
-	//tab_map = NULL;
-	data->len.y += 1;
-	/* voir pour malloc directement data->tab_map */
+	data->len.y += 2;
 	data->tab_map = malloc(sizeof(char *) * data->len.y);
 	if (!data->tab_map)
 		return (NULL);
 	while (1)
 	{
-		ft_printf("i = %i\n", i);
-		ft_printf("sizeof len.y = %i\n", data->len.y);
 		line = get_next_line(fd);
 		if (!line)
 			break ;
 		data->tab_map[i] = ft_strdup(line);
 		if (!data->tab_map[i])
 			return (free_map(data->tab_map, data), NULL);
-		ft_printf("data->tab_map[i] = [%s]\n", data->tab_map[i]);
 		free(line);
 		i++;
 	}
-	ft_printf("i = %i\n", i);
-	//data->tab_map[i] = ft_strdup("\0");
-	///ft_printf("tab_map[i + 1] = [%s]\n", tab_map[i + 1]);
+	data->tab_map[i] = ft_strdup("\0");
 	return ((void **)data->tab_map);
-	//return (NULL);
 }
 
 int	creat_tab_map_cpy(int fd, t_data *data)
@@ -54,7 +45,6 @@ int	creat_tab_map_cpy(int fd, t_data *data)
 
 	i = 0;
 	tab_map_cpy = malloc(sizeof(char *) * data->len.y);
-	ft_printf("sizeof len.y cpy = %i\n", data->len.y);
 	if (!tab_map_cpy)
 		return (-1);
 	while (1)

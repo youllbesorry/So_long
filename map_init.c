@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:51:38 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/20 13:17:17 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/20 17:46:42 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ int	put_image(char **tab_map, t_data *data, int y, int x)
 	nb_move = ft_itoa(data->move);
 	mlx_string_put(data->mlx, data->win, 1, 10, 0, "move :");
 	mlx_string_put(data->mlx, data->win, 40, 10, 0, nb_move);
-	mlx_put_image_to_window(data->mlx, data->win, data->img.floor,
-		(x * 32), (y * 32));
+	if (tab_map[y][x] == '0' || tab_map[y][x] == 'P')
+		mlx_put_image_to_window(data->mlx, data->win, data->img.floor,
+			(x * 32), (y * 32));
 	mlx_put_image_to_window(data->mlx, data->win, data->img.player,
 		(data->player_x), (data->player_y));
 	if (tab_map[y][x] == 'E')
