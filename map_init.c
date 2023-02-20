@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:51:38 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/17 17:46:55 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/20 13:17:17 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	fill_map(t_data	*data)
 	int		y;
 
 	y = 0;
-	while (data->tab_map[y] && y < data->len.y + 1)
+	while (data->tab_map[y] && y < data->len.y - 1)
 	{
 		x = 0;
 		while (data->tab_map[y][x] && x < data->len.x + 1)
@@ -92,7 +92,7 @@ int	map_init(t_data *data)
 	data->mlx = mlx_init();
 	mlx_do_key_autorepeatoff(data->mlx);
 	data->win = mlx_new_window(data->mlx, (data->len.x + 1) * 32,
-			(data->len.y + 1) * 32, "So long");
+			(data->len.y - 1) * 32, "So long");
 	if (img_init1(data) == -1)
 		return (-1);
 	if (img_init2(data) == -1)

@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:26:33 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/17 16:22:04 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/20 13:45:18 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	destroy(t_data *data)
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);
 	exit (0);
-	return (0);
 }
 
 int	key_check(int keycode, t_data *data)

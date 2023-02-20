@@ -44,7 +44,7 @@ void	init_data(t_data *data)
 void	fill_data(t_data *data, int fd)
 {
 	data->tab_map = NULL;
-	data->tab_map = creat_tab_map(fd, data);
+	creat_tab_map(fd, data);
 	data->player_x = gps_x_player(data->tab_map, data) * 32;
 	data->player_y = gps_y_player(data->tab_map, data) * 32;
 	data->coll = 0;

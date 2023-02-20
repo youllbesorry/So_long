@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:04:19 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/17 16:50:28 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/20 14:04:34 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,20 @@ int	check_len_error(int fd)
 }
 
 int	free_map(char **tab_map, t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->len.y)
+	{
+		free(tab_map[i]);
+		i++;
+	}
+	free(tab_map);
+	return (-1);
+}
+
+int	free_map_cpy(char **tab_map, t_data *data)
 {
 	int	i;
 
