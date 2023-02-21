@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:44:36 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/21 15:56:38 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/21 16:48:55 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include "../Libft/headers/ft_printf.h"
 # include "../Libft/headers/get_next_line.h"
 
+int		loop1(t_data *data);
 int		len_error(char *line);
 int		destroy(t_data *data);
 int		fill_map(t_data	*data);
@@ -48,6 +49,7 @@ int		dis_to_the_down(int x_p, int y_p, t_data *data);
 int		dis_to_the_right(int x_p, int y_p, t_data *data);
 int		put_image(char **tab_map, t_data *data, int y, int x);
 
+void	**creat_tab_map(int fd, t_data *data);
 void	dis_to_the_up_exit(int x_p, int y_p, t_data *data);
 void	dis_to_the_up_coll(int x_p, int y_p, t_data *data);
 void	dis_to_the_down_coll(int x_p, int y_p, t_data *data);
@@ -57,7 +59,5 @@ void	dis_to_the_left_exit(int x_p, int y_p, t_data *data);
 void	dis_to_the_right_coll(int x_p, int y_p, t_data *data);
 void	dis_to_the_right_exit(int x_p, int y_p, t_data *data);
 
-void	**creat_tab_map(int fd, t_data *data);
-int		loop1(t_data *data);
 
 #endif
