@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:38:58 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/07 13:00:08 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/21 16:25:26 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/get_next_line_bonus.h"
+#include "../headers/get_next_line.h"
+#include "../headers/libft.h"
 
 void	clear_buff(char *buff)
 {
@@ -62,7 +63,7 @@ char	*get_next_line(int fd)
 	cursor = 1;
 	if (fd < 0 || read(fd, 0, 0) == -1 || BUFFER_SIZE < 1)
 		return (NULL);
-	line = malloc(sizeof(char) * 0);
+	line = malloc(sizeof(char) * 1);
 	if (!line)
 		return (clear_buff(buff), free(line), NULL);
 	line[0] = '\0';

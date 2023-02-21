@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:51:38 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/20 17:46:42 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/21 09:56:15 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,15 @@ int	img_init1(t_data *data)
 	data->img.floor = mlx_xpm_file_to_image(data->mlx, "./images/floor.xpm",
 			&data->img_width, &data->img_height);
 	if (data->img.floor == NULL)
-		return (destroy(data), -1);
+		return (ft_printf("ERROR\nMissing texture\n"), destroy(data), -1);
 	data->img.exit = mlx_xpm_file_to_image(data->mlx, "./images/exit.xpm",
 			&data->img_width, &data->img_height);
 	if (data->img.exit == NULL)
-		return (destroy(data), -1);
+		return (ft_printf("ERROR\nMissing texture\n"), destroy(data), -1);
 	data->img.wall = mlx_xpm_file_to_image(data->mlx, "./images/wall.xpm",
 			&data->img_width, &data->img_height);
 	if (data->img.wall == NULL)
-		return (destroy(data), -1);
+		return (ft_printf("ERROR\nMissing texture\n"), destroy(data), -1);
 	return (0);
 }
 
@@ -80,11 +80,11 @@ int	img_init2(t_data *data)
 	data->img.rocks = mlx_xpm_file_to_image(data->mlx, "./images/Rocks.xpm",
 			&data->img_width, &data->img_height);
 	if (data->img.rocks == NULL)
-		return (destroy(data), -1);
+		return (ft_printf("ERROR\nMissing texture\n"), destroy(data), -1);
 	data->img.player = mlx_xpm_file_to_image(data->mlx, "./images/player.xpm",
 			&data->img_width, &data->img_height);
 	if (data->img.player == NULL)
-		return (destroy(data), -1);
+		return (ft_printf("ERROR\nMissing texture\n"), destroy(data), -1);
 	return (0);
 }
 

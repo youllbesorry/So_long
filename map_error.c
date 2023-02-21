@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:00:05 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/14 13:49:41 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/21 11:49:49 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ int	is_closed_map_x(char **tab_map_cpy, t_data *data)
 	while (tab_map_cpy[0][x] && x < data->len.x + 1)
 	{
 		if (tab_map_cpy[0][x] != '1')
-			return (ft_printf("ERROR\nmap not closed 1.1\n"), -1);
+			return (ft_printf("ERROR\nmap not closed\n"), -1);
 		x++;
 	}
 	x = 0;
 	while (tab_map_cpy[data->len.y][x] && x < data->len.x + 1)
 	{
 		if (tab_map_cpy[data->len.y][x] != '1')
-			return (ft_printf("ERROR\nmap not closed 1.2\n"), -1);
+			return (ft_printf("ERROR\nmap not closed\n"), -1);
 		x++;
 	}
 	return (1);
@@ -65,14 +65,14 @@ int	is_closed_map_y(char **tab_map_cpy, t_data *data)
 	while (tab_map_cpy[y][0] && y < data->len.y)
 	{
 		if (tab_map_cpy[y][0] != '1' && y < data->len.y)
-			return (ft_printf("ERROR\nmap not closed 2.1\n"), -1);
+			return (ft_printf("ERROR\nmap not closed\n"), -1);
 		y++;
 	}
 	y = 0;
 	while (tab_map_cpy[y][data->len.x] && y < data->len.y)
 	{
 		if (tab_map_cpy[y][data->len.x] != '1' && y < data->len.y)
-			return (ft_printf("ERROR\nmap not closed 2.2\n"), -1);
+			return (ft_printf("ERROR\nmap not closed\n"), -1);
 		y++;
 	}
 	if (find_pce(tab_map_cpy, data) == -1)
@@ -85,13 +85,13 @@ int	test_pce(char **tab_map_cpy, t_data *data, t_gps_p *gps_p)
 	if (tab_map_cpy[gps_p->y][gps_p->x] == 'P')
 		data->characters.p++;
 	if (data->characters.p > 1)
-		return (ft_printf("ERROR\nmore than 1 player finded\n"), -1);
+		return (ft_printf("ERROR\nMore than 1 player finded\n"), -1);
 	if (tab_map_cpy[gps_p->y][gps_p->x] == 'C')
 		data->characters.c++;
 	if (tab_map_cpy[gps_p->y][gps_p->x] == 'E')
 		data->characters.e++;
 	if (data->characters.e > 1)
-		return (ft_printf("ERROR\nmore than 1 exit on the map\n"), -1);
+		return (ft_printf("ERROR\nMore than 1 exit on the map\n"), -1);
 	return (1);
 }
 
@@ -112,10 +112,10 @@ int	find_pce(char **tab_map_cpy, t_data *data)
 		gps_p.y++;
 	}
 	if ((data->characters.p < 1))
-		return (ft_printf("ERROR\nplayer not found\n"), -1);
+		return (ft_printf("ERROR\nPlayer not found\n"), -1);
 	if ((data->characters.c < 1))
-		return (ft_printf("ERROR\ncollectible not found\n"), -1);
+		return (ft_printf("ERROR\nCollectible not found\n"), -1);
 	if ((data->characters.e < 1))
-		return (ft_printf("ERROR\nexit not found\n"), -1);
+		return (ft_printf("ERROR\nExit not found\n"), -1);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:42:54 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/25 18:53:08 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/21 11:51:19 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	check_char(char **tab_map_cpy, t_data *data)
 			if (tab_map_cpy[y][x] != 'P' && tab_map_cpy[y][x] != 'C'
 			&& tab_map_cpy[y][x] != 'E' && tab_map_cpy[y][x] != '0'
 			&& tab_map_cpy[y][x] != '1')
-				return (ft_printf("ERROR\nunknown characters on the map\n"), -1);
+				return (ft_printf("ERROR\nUnknown characters on the map\n"), -1);
 			x++;
 		}
 		y++;
@@ -71,14 +71,14 @@ int	is_finishable(char **tab_map_cpy, t_data *data)
 		while (tab_map_cpy[y][x] && x < data->len.x)
 		{
 			if (tab_map_cpy[y][x] == 'C')
-				return (ft_printf("ERROR \nmap can not be finished 1\n"), -1);
+				return (ft_printf("ERROR \nMap can not be finished\n"), -1);
 			if (tab_map_cpy[y][x] == 'E')
 			{
 				if (tab_map_cpy[y][x + 1] != '*'
 				&& tab_map_cpy[y][x - 1] != '*'
 				&& tab_map_cpy[y + 1][x] != '*'
 				&& tab_map_cpy[y - 1][x] != '*')
-					return (ft_printf("ERROR \nmap can not be finished 2\n"), -1);
+					return (ft_printf("ERROR \nMap can not be finished\n"), -1);
 			}
 			x++;
 		}
@@ -112,6 +112,5 @@ int	test_map(char **tab_map_cpy, t_data *data)
 			y++;
 		}
 	}
-	is_finishable(tab_map_cpy, data);
-	return (0);
+	return (is_finishable(tab_map_cpy, data));
 }

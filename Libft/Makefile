@@ -6,7 +6,7 @@
 #    By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 15:23:52 by bfaure            #+#    #+#              #
-#    Updated: 2023/01/23 11:06:01 by bfaure           ###   ########lyon.fr    #
+#    Updated: 2023/02/21 16:24:29 by bfaure           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,8 +53,8 @@ SRCS = ft_isalpha.c\
 	ft_putnbr_printf.c\
 	ft_putptr_printf.c\
 	ft_putstr_printf.c\
-	get_next_line_bonus.c\
-	get_next_line_utils_bonus.c\
+	get_next_line.c\
+	get_next_line_utils.c\
 
 DIR_SRCS = src/
 
@@ -69,10 +69,10 @@ CC = cc
 MKDIR = mkdir -p
 
 HEADERS	= 	libft.h\
-			get_next_line_bonus.h\
+			get_next_line.h\
 			ft_printf.h\
 
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -g3
 
 all :		${NAME}
 

@@ -15,8 +15,11 @@
 int	check_map_error(t_data *data, int fd)
 {
 	data->len.y = check_len_error(fd);
+	if (read(fd, 0, 0) == -1)
+		return (close(fd),
+			ft_printf("ERROR\nYou have not the right to read the map"), -1);
 	if (data->len.y == 0)
-		return (close(fd), ft_printf("ERROR\nempty map\n"), -1);
+		return (close(fd), ft_printf("ERROR\nEmpty map\n"), -1);
 	if (data->len.y == -1)
 		return (close(fd), -1);
 	close(fd);
@@ -70,13 +73,12 @@ int	main(int argc, char **argv)
 		if (creat_tab_map_cpy(fd, &data) == -1)
 			return (close(fd), -1);
 		close(fd);
-		if (data.len.y == data.len.x)
-			return (ft_printf("ERROR\nMap not rectangular\n"), -1);
 		fd = open(argv[1], O_RDONLY);
 		fill_data(&data, fd);
 		map_init(&data);
+		close(fd);
 	}
 	else
-		return (ft_printf("ERROR\nyou need to pass at leas one maps\n"), -1);
+		return (ft_printf("ERROR\nYou need to pass at leas one map\n"), -1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:44:36 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/20 14:06:42 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/21 15:56:38 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "../mlx/mlx.h"
 # include "../Libft/headers/libft.h"
 # include "../Libft/headers/ft_printf.h"
-# include "../Libft/headers/get_next_line_bonus.h"
+# include "../Libft/headers/get_next_line.h"
 
 int		len_error(char *line);
 int		destroy(t_data *data);

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:39:25 by bfaure            #+#    #+#             */
-/*   Updated: 2023/01/12 15:43:31 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/21 15:55:45 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/get_next_line_bonus.h"
+#include "../headers/get_next_line.h"
 
 size_t	ft_strlen_gnl(char *str)
 {
