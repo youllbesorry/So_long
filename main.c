@@ -79,6 +79,6 @@ int	main(int argc, char **argv)
 		close(fd);
 	}
 	else
-		return (ft_printf("ERROR\nYou need to pass at leas one map\n"), -1);
+		return (ft_printf("ERROR\nYou need to pass at least one map\n"), -1);
 	return (0);
 }

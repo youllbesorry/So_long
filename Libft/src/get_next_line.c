@@ -6,12 +6,11 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:38:58 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/21 16:25:26 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/22 10:38:40 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/get_next_line.h"
-#include "../headers/libft.h"
 
 void	clear_buff(char *buff)
 {
