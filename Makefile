@@ -6,7 +6,7 @@
 #    By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 14:25:35 by bfaure            #+#    #+#              #
-#    Updated: 2023/02/21 16:24:24 by bfaure           ###   ########lyon.fr    #
+#    Updated: 2023/03/03 15:52:07 by bfaure           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,25 +60,28 @@ MKDIR	=	mkdir -p
 
 # ********* RULES ******** #
 
-all		:	${NAME}
+all		:
+	@ ${MAKE} libs -j4
+	@ ${MAKE} ${NAME} -j4
+
+libs	:
+	@ ${MAKE} ${LIBFT} -C ${DIR_LIBFT}
+	@ ${MAKE} ${LIBMLX} -C ${DIR_MLX}
 
 .PHONY:	all clean fclean re fclean_lib fclean_all
 
 # ---- Variables Rules ---- #
 
-${NAME}	:	${OBJS} ${addprefix ${DIR_LIBFT}, ${LIBFT}} ${addprefix ${DIR_MLX}, ${LIBMLX}}
+${NAME}	:	${OBJS}
 			${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L${DIR_LIBFT} -lft -L${DIR_MLX} -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 			
 ${addprefix ${DIR_LIBFT}, ${LIBFT}}	:
-			make ${LIBFT} -C ${DIR_LIBFT}
-
-${addprefix ${DIR_MLX}, ${LIBMLX}}	:
-			make ${LIBMLX} -C ${DIR_MLX}
+			@ $(MAKE) ${LIBFT} -C ${DIR_LIBFT}
 
 # ---- Compiled Rules ---- #
 
-${DIR_OBJS}%.o	:	${DIR_SRCS}%.c Makefile ${HEAD} ./Libft/headers/ft_printf.h ./Libft/headers/get_next_line.h ./Libft/headers/libft.h | ${DIR_OBJS}
-					${CC} ${CFLAGS} -I ${addprefix ${DIR_LIBFT}, headers/} -I ${DIR_MLX} -I. -c $< -o $@
+${DIR_OBJS}%.o	:	${DIR_SRCS}%.c ${HEAD} ./Libft/headers/ft_printf.h ./Libft/headers/get_next_line.h ./Libft/headers/libft.h | ${DIR_OBJS}
+					${CC} ${CFLAGS} -I ${addprefix ${DIR_LIBFT}, headers/} -I ${DIR_MLX} -c $< -o $@
 
 ${DIR_OBJS}		:
 					${MKDIR} ${DIR_OBJS}

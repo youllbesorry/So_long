@@ -55,6 +55,17 @@ void	fill_data(t_data *data, int fd)
 	close(fd);
 }
 
+int	ber_error(char **argv)
+{
+	size_t	len;
+
+	len = ft_strlen(argv[1]);
+	if (argv[1][len - 1] != 'r' || argv[1][len - 2] != 'e'
+	|| argv[1][len - 3] != 'b' || argv[1][len - 4] != '.')
+		return (-1);
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	int		fd;
@@ -64,7 +75,7 @@ int	main(int argc, char **argv)
 	init_data(&data);
 	if (argc > 1)
 	{
-		if (ft_strnstr((const char *) argv[1], ".ber", ft_strlen(argv[1])) == 0)
+		if (ber_error(argv) == -1)
 			return (ft_printf("ERROR\nMap not in .ber\n"), -1);
 		fd = open(argv[1], O_RDONLY);
 		if (check_map_error(&data, fd) == -1)

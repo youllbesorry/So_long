@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:44:36 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/21 16:48:55 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/02/24 13:30:56 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,5 @@ void	dis_to_the_down_exit(int x_p, int y_p, t_data *data);
 void	dis_to_the_left_exit(int x_p, int y_p, t_data *data);
 void	dis_to_the_right_coll(int x_p, int y_p, t_data *data);
 void	dis_to_the_right_exit(int x_p, int y_p, t_data *data);
-
 
 #endif
