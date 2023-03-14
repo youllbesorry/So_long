@@ -52,6 +52,12 @@ void	fill_data(t_data *data, int fd)
 	data->player_y = gps_y_player(data->tab_map, data) * 32;
 	data->coll = 0;
 	data->move = 0;
+	if (data->len.x >= 15 && data->len.x < 30)
+		data->v_dir = 2;
+	else if (data->len.x >= 30)
+		data->v_dir = 4;
+	else
+		data->v_dir = 1;
 	close(fd);
 }
 

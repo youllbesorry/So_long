@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:51:38 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/21 09:56:15 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/03/14 13:56:09 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ int	img_init2(t_data *data)
 int	map_init(t_data *data)
 {
 	data->mlx = mlx_init();
+	if (!data->mlx)
+		return (0);
 	mlx_do_key_autorepeatoff(data->mlx);
 	data->win = mlx_new_window(data->mlx, (data->len.x + 1) * 32,
 			(data->len.y - 1) * 32, "So long");

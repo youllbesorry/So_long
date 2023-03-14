@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 14:03:28 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/22 10:40:52 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/03/14 13:34:18 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	loop2(t_data *data)
 
 	dis_left = dis_to_the_left(data->player_x, data->player_y, data);
 	dis_right = dis_to_the_right(data->player_x, data->player_y, data);
-	if (dis_left > 32 && data->player_dirx == -1)
+	if (dis_left > 32 && data->player_dirx == -data->v_dir)
 	{
 		dis_to_the_left_coll(data->player_x, data->player_y, data);
 		dis_to_the_left_exit(data->player_x, data->player_y, data);
@@ -27,7 +27,7 @@ void	loop2(t_data *data)
 		data->move++;
 		ft_printf("move = %i\n", data->move);
 	}
-	if (dis_right > 0 && data->player_dirx == 1)
+	if (dis_right > 0 && data->player_dirx == data->v_dir)
 	{
 		dis_to_the_right_coll(data->player_x, data->player_y, data);
 		dis_to_the_right_exit(data->player_x, data->player_y, data);
@@ -45,7 +45,7 @@ int	loop1(t_data *data)
 	fill_map(data);
 	dis_up = dis_to_the_up(data->player_x, data->player_y, data);
 	dis_down = dis_to_the_down(data->player_x, data->player_y, data);
-	if (dis_up > 32 && data->player_diry == -1)
+	if (dis_up > 32 && data->player_diry == -data->v_dir)
 	{
 		dis_to_the_up_coll(data->player_x, data->player_y, data);
 		dis_to_the_up_exit(data->player_x, data->player_y, data);
@@ -53,7 +53,7 @@ int	loop1(t_data *data)
 		data->move++;
 		ft_printf("move = %i\n", data->move);
 	}
-	if (dis_down > 0 && data->player_diry == 1)
+	if (dis_down > 0 && data->player_diry == data->v_dir)
 	{
 		dis_to_the_down_coll(data->player_x, data->player_y, data);
 		dis_to_the_down_exit(data->player_x, data->player_y, data);

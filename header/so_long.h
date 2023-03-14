@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:44:36 by bfaure            #+#    #+#             */
-/*   Updated: 2023/02/24 13:30:56 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/03/14 13:18:06 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 # include "../Libft/headers/libft.h"
 # include "../Libft/headers/ft_printf.h"
 # include "../Libft/headers/get_next_line.h"
+
+# ifndef V_DIR
+#  define V_DIR 2
+# endif
 
 int		loop1(t_data *data);
 int		len_error(char *line);

@@ -6,7 +6,7 @@
 #    By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 14:25:35 by bfaure            #+#    #+#              #
-#    Updated: 2023/03/03 15:52:07 by bfaure           ###   ########lyon.fr    #
+#    Updated: 2023/03/14 11:50:58 by bfaure           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,10 @@ DIR_SRCS	=	./
 DIR_MLX		=	mlx/
 
 DIR_LIBFT	=	Libft/
+
+LIBFT_A = $(DIR_LIBFT)$(LIBFT)
+
+MLXLIB_A = $(DIR_MLX)$(LIBMLX)
 
 # ---- Files ---- #
 
@@ -60,31 +64,26 @@ MKDIR	=	mkdir -p
 
 # ********* RULES ******** #
 
-all		:
-	@ ${MAKE} libs -j4
-	@ ${MAKE} ${NAME} -j4
+all		: ${NAME}
 
-libs	:
-	@ ${MAKE} ${LIBFT} -C ${DIR_LIBFT}
-	@ ${MAKE} ${LIBMLX} -C ${DIR_MLX}
+$(LIBFT_A):	force
+	@ ${MAKE} ${LIBFT} -C ${DIR_LIBFT} -j4
 
-.PHONY:	all clean fclean re fclean_lib fclean_all
+$(MLXLIB_A): force
+	@ ${MAKE} ${LIBMLX} -C ${DIR_MLX} -j4
+
+.PHONY:	all clean fclean re fclean_lib fclean_all force
 
 # ---- Variables Rules ---- #
 
 ${NAME}	:	${OBJS}
 			${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L${DIR_LIBFT} -lft -L${DIR_MLX} -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
-			
-${addprefix ${DIR_LIBFT}, ${LIBFT}}	:
-			@ $(MAKE) ${LIBFT} -C ${DIR_LIBFT}
 
 # ---- Compiled Rules ---- #
 
-${DIR_OBJS}%.o	:	${DIR_SRCS}%.c ${HEAD} ./Libft/headers/ft_printf.h ./Libft/headers/get_next_line.h ./Libft/headers/libft.h | ${DIR_OBJS}
-					${CC} ${CFLAGS} -I ${addprefix ${DIR_LIBFT}, headers/} -I ${DIR_MLX} -c $< -o $@
-
-${DIR_OBJS}		:
-					${MKDIR} ${DIR_OBJS}
+${DIR_OBJS}%.o	:	${DIR_SRCS}%.c ${HEAD} $(LIBFT_A) $(MLXLIB_A)
+					@${MKDIR} ${DIR_OBJS}
+					${CC} ${CFLAGS} -I $(DIR_LIBFT) -I ${DIR_MLX} -c $< -o $@
 
 # ---- Usual Commands ---- #
 
