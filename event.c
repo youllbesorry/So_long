@@ -6,7 +6,7 @@
 /*   By: bfaure <bfaure@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:26:33 by bfaure            #+#    #+#             */
-/*   Updated: 2023/03/17 12:09:06 by bfaure           ###   ########lyon.fr   */
+/*   Updated: 2023/03/20 13:00:59 by bfaure           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	destroy(t_data *data)
 		mlx_destroy_image(data->mlx, data->img.rocks);
 	if (data->tab_map)
 		free_map(data->tab_map, data);
+	if (data->mlx)
+		mlx_do_key_autorepeaton(data->mlx);
 	if (data->mlx && data->win)
 		mlx_destroy_window(data->mlx, data->win);
 	if (data->mlx)

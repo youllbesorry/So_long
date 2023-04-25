@@ -79,7 +79,7 @@ int	main(int argc, char **argv)
 
 	fd = 0;
 	init_data(&data);
-	if (argc > 1)
+	if (argc == 2)
 	{
 		if (ber_error(argv) == -1)
 			return (ft_printf("ERROR\nMap not in .ber\n"), -1);
@@ -96,6 +96,6 @@ int	main(int argc, char **argv)
 		close(fd);
 	}
 	else
-		return (ft_printf("ERROR\nYou need to pass at least one map\n"), -1);
+		return (ft_printf("ERROR\nYou need to give 1 map to the game\n"), -1);
 	return (0);
 }
